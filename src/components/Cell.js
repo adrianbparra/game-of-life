@@ -1,14 +1,13 @@
 import React from "react"
 
 
-const Cell = (props) => {
+const Cell = ({changeCell, cell}) => {
 
-    const  {alive, x, y} = props.cell;
-    const changeState = props.changeState;
-    // console.log(props.cell)
+    const  {alive, x, y} = cell;
+
 
     return (
-        <div key={x + y} className={`${alive ? "alive": ''} cell`} onClick={()=> changeState({x,y})}>
+        <div key={x + y} className={`${alive ? "alive": ''} cell`} onClick={()=> changeCell({x,y})}>
 
         </div>
     )

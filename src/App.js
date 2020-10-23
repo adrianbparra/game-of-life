@@ -33,13 +33,14 @@ function App() {
 
     play && setTimeout(() => {
 
-      const newGrid = nextGeneration(grid)
+      // const newGrid = 
       setGeneration(generations + 1)
 
-    setGrid(newGrid)
+      setGrid(nextGeneration(grid))
+
     }, speed);
 
-  },[generations,play])
+  },[grid,play])
 
 
   const changeCell = ({x,y}) => {

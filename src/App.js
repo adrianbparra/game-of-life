@@ -19,25 +19,16 @@ function App() {
 
   
   useEffect(()=>{
-        
-    // Once useffect to update the size
-        // TODO if some cells are selected then keep them same spot
-        // or make them be in the middle
-    const grid = gridCreation(gridSize)
     
-    setGrid(grid)
+    setGrid(gridCreation(gridSize))
 
   },[gridSize])
 
   useEffect(()=> {
 
     play && setTimeout(() => {
-
-      // const newGrid = 
       setGeneration(generations + 1)
-
       setGrid(nextGeneration(grid))
-
     }, speed);
 
   },[grid,play])
@@ -46,11 +37,8 @@ function App() {
   const changeCell = ({x,y}) => {
 
     if (!play){
-      
       const newState = [...grid];
-  
       newState[y][x].alive = !newState[y][x].alive;
-      
       setGrid(newState);
     }
 
@@ -64,10 +52,9 @@ function App() {
 
   const clearGrid = () => {
     setPlay(false)
-    const newGrid = gridCreation(gridSize)
 
     setTimeout(() => {
-      setGrid(newGrid)
+      setGrid(gridCreation(gridSize))
       
       setGeneration(0)
 
@@ -77,10 +64,10 @@ function App() {
   }
 
   const nextGen = () => {
-    const newGrid = nextGeneration(grid)
+    
     setGeneration(generations + 1)
 
-    setGrid(newGrid)
+    setGrid(nextGeneration(grid))
 
   }
 

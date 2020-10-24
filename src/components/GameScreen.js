@@ -3,9 +3,6 @@ import Cell from "./Cell";
 
 function GameScreen({grid,changeCell}) {
 
-
-
-
     return (
 
         <div className="game-screen">

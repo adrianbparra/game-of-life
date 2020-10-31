@@ -19,7 +19,6 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup, 
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-  
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -57,4 +56,16 @@ q:before, q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
+}
+
+a:visited{
+  color:  #a3c2a7;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover, a:focus {
+  color: white;
 }

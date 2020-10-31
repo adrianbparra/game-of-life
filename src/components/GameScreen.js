@@ -10,7 +10,7 @@ function GameScreen({grid,changeCell}) {
                 {   
                     grid.map((row,i) => {
                         return (<div className="row" key={i}>
-                            {row.map(cell => <Cell cell={cell} changeCell={changeCell}/>)}
+                            {row.map(cellItem => <Cell key={cellItem.x+cellItem.y} cellItem={cellItem} changeCell={changeCell}/>)}
                         </div>)
                     })
                 }

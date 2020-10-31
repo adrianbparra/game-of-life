@@ -64,11 +64,8 @@ function App() {
   }
 
   const nextGen = () => {
-    
     setGeneration(generations + 1)
-
     setGrid(nextGeneration(grid))
-
   }
 
   return (
@@ -78,7 +75,7 @@ function App() {
         <h1>Game of Life</h1>
       </header>
 
-      <div className="content">
+      <main className="content">
 
         <Buttons speed={speed} setSpeed={setSpeed} generations={generations} setPlay={setPlay} play={play} gridSize={gridSize} updateGrid={updateGrid} clearGrid={clearGrid} nextGen={nextGen}/>
 
@@ -86,9 +83,11 @@ function App() {
 
         <Rules/>
 
-      </div>
+      </main>
 
-      
+      <footer>
+        <small>Created by <a href='https://adrianbparra.com/' target="_blank" rel="noopener noreferrer">adrianbparra.com</a> </small>
+      </footer>
     </div>
     
   );

@@ -12,8 +12,8 @@ what I have previously studied in Computer Science.
 ## Objectives
 
 
-* [I should be able to describe the rules of Conway’s “Game of
-  Life”](objectives)
+* I should be able to describe the rules of Conway’s “Game of
+  Life”
 * I should be able to explain what cellular automata are and
   describe how they are useful in real
   life
@@ -96,9 +96,7 @@ Implement at least 3 of the following features:
 ## Stretch Goals
 
 * Implement 2+ additional custom features, above
-* Deploy your app to a hosting service or, for iOS, to TestFlight (or
-  the App Store!). Web devs can see [more deployment info
-  here](resources/web/deployment).
+* Deploy your app to a hosting service
 * Write a how-to guide or blog post that walks readers through the
   work you did to implement your project
 * Expand your simulation into the third dimension. Google `3D Conways

@@ -13,7 +13,7 @@ function Rules() {
                     <li>Any live cell with more than three live neighbours dies, as if by overpopulation.</li>
                     <li>Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.</li>
                 </ol>
-                <p>These rules, which compare the behavior of the automaton to real life, can be condensed into the following:</p>
+                <p>These rules, which compare the behavior of the automaton to real life, can be condensed into the following.</p>
                 <ol>
                     <li>Any live cell with two or three live neighbours survives.</li>
                     <li>Any dead cell with three live neighbours becomes a live cell.</li>

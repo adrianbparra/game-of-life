@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import GameScreen from './components/GameScreen';
 import Buttons from './components/Buttons';
 import Rules from './components/Rules';
+import GridSamples from './components/GridSamples';
 
-import{ gridCreation, nextGeneration } from './util/gridCreation';
+import{ gridCreation, nextGeneration, sampleCreation } from './util/gridCreation';
 
 import './App.css';
 
@@ -11,7 +12,7 @@ import './App.css';
 
 function App() {
 
-  const [gridSize ,setGridSize] = useState(25);
+  const [gridSize ,setGridSize] = useState(15);
   const [grid, setGrid] = useState([[]]);
   const [play, setPlay] = useState(false);
   const [generations, setGeneration] = useState(0)
@@ -68,11 +69,19 @@ function App() {
     setGrid(nextGeneration(grid))
   }
 
+  const sampleGen = (sample) => {
+
+    // sampleCreation(sample,grid,gridSize)
+    setGrid(sampleCreation(sample,grid,gridSize))
+    // console.log('sample gen')
+    
+  }
+
   return (
     
     <div className="App">
       <header className="header">
-        <h1>Game of Life</h1>
+        <h1><a href="/">Game of Life</a></h1>
       </header>
 
       <main className="content">
@@ -80,6 +89,8 @@ function App() {
         <Buttons speed={speed} setSpeed={setSpeed} generations={generations} setPlay={setPlay} play={play} gridSize={gridSize} updateGrid={updateGrid} clearGrid={clearGrid} nextGen={nextGen}/>
 
         <GameScreen grid={grid} changeCell={changeCell}/>
+
+        <GridSamples sampleGen={sampleGen}/>
 
         <Rules/>
 

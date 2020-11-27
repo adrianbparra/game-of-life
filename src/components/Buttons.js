@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 
 function Buttons({generations, speed, setSpeed, setPlay, play, updateGrid, clearGrid, nextGen}) {
     
-    const [gridSize, setGridsize] = useState(25)
+    const [gridSize, setGridsize] = useState(15)
 
     const updateGridSize = (e) => {
         setGridsize(e.target.value)
@@ -32,7 +32,7 @@ function Buttons({generations, speed, setSpeed, setPlay, play, updateGrid, clear
                 <button onClick={()=> setSpeed(speed/2)}>Faster</button>
             </div>
 
-            <div className="grid-container">
+            <div className="range-container">
                 <input 
                     disabled={play} 
                     type="range" 

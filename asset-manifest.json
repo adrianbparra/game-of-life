@@ -1,22 +1,36 @@
 {
   "files": {
-    "main.css": "/game-of-life/static/css/main.d674e422.chunk.css",
-    "main.js": "/game-of-life/static/js/main.0a754107.chunk.js",
-    "main.js.map": "/game-of-life/static/js/main.0a754107.chunk.js.map",
+    "main.css": "/game-of-life/static/css/main.0ad10205.chunk.css",
+    "main.js": "/game-of-life/static/js/main.e0f4675d.chunk.js",
+    "main.js.map": "/game-of-life/static/js/main.e0f4675d.chunk.js.map",
     "runtime-main.js": "/game-of-life/static/js/runtime-main.1dafd470.js",
     "runtime-main.js.map": "/game-of-life/static/js/runtime-main.1dafd470.js.map",
-    "static/js/2.5ccedfeb.chunk.js": "/game-of-life/static/js/2.5ccedfeb.chunk.js",
-    "static/js/2.5ccedfeb.chunk.js.map": "/game-of-life/static/js/2.5ccedfeb.chunk.js.map",
+    "static/js/2.cd1461cf.chunk.js": "/game-of-life/static/js/2.cd1461cf.chunk.js",
+    "static/js/2.cd1461cf.chunk.js.map": "/game-of-life/static/js/2.cd1461cf.chunk.js.map",
     "index.html": "/game-of-life/index.html",
-    "precache-manifest.ba252867678f97058609a2fe0cfd4ab4.js": "/game-of-life/precache-manifest.ba252867678f97058609a2fe0cfd4ab4.js",
+    "precache-manifest.3d152385fcb477016870ce40fbe1d14f.js": "/game-of-life/precache-manifest.3d152385fcb477016870ce40fbe1d14f.js",
     "service-worker.js": "/game-of-life/service-worker.js",
-    "static/css/main.d674e422.chunk.css.map": "/game-of-life/static/css/main.d674e422.chunk.css.map",
-    "static/js/2.5ccedfeb.chunk.js.LICENSE.txt": "/game-of-life/static/js/2.5ccedfeb.chunk.js.LICENSE.txt"
+    "static/css/main.0ad10205.chunk.css.map": "/game-of-life/static/css/main.0ad10205.chunk.css.map",
+    "static/js/2.cd1461cf.chunk.js.LICENSE.txt": "/game-of-life/static/js/2.cd1461cf.chunk.js.LICENSE.txt",
+    "static/media/beacon.gif": "/game-of-life/static/media/beacon.51a9d85e.gif",
+    "static/media/beehive.jpg": "/game-of-life/static/media/beehive.a8305e23.jpg",
+    "static/media/blinker.gif": "/game-of-life/static/media/blinker.846a46bb.gif",
+    "static/media/block.jpg": "/game-of-life/static/media/block.778a27f4.jpg",
+    "static/media/boat.jpg": "/game-of-life/static/media/boat.8bce593a.jpg",
+    "static/media/glider.gif": "/game-of-life/static/media/glider.007b1aa9.gif",
+    "static/media/hwss.gif": "/game-of-life/static/media/hwss.3a3e89e5.gif",
+    "static/media/loaf.jpg": "/game-of-life/static/media/loaf.ff3f6439.jpg",
+    "static/media/lwss.gif": "/game-of-life/static/media/lwss.65ec31a7.gif",
+    "static/media/mwss.gif": "/game-of-life/static/media/mwss.9b0e8c26.gif",
+    "static/media/penta_decathlon.gif": "/game-of-life/static/media/penta_decathlon.17cae0b3.gif",
+    "static/media/pulsar.gif": "/game-of-life/static/media/pulsar.122959ef.gif",
+    "static/media/toad.gif": "/game-of-life/static/media/toad.ca6d20bc.gif",
+    "static/media/tub.jpg": "/game-of-life/static/media/tub.1b6ff186.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.1dafd470.js",
-    "static/js/2.5ccedfeb.chunk.js",
-    "static/css/main.d674e422.chunk.css",
-    "static/js/main.0a754107.chunk.js"
+    "static/js/2.cd1461cf.chunk.js",
+    "static/css/main.0ad10205.chunk.css",
+    "static/js/main.e0f4675d.chunk.js"
   ]
 }

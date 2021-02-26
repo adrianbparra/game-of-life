@@ -3,7 +3,7 @@ import React,{ useState } from "react";
 // import block from '../util/images/block.jpg'
 
 
-function GridSamples({sampleGen}) {
+function GridSamples({sampleGen, play}) {
 
     const [samples,setSamples] = useState({'stillLifes':'block', 'oscillators':'blinker','spaceships':'glider'})
 
@@ -39,7 +39,7 @@ function GridSamples({sampleGen}) {
 
                     <img src={require(`../util/images/${samples['stillLifes']}.jpg`)} alt={`still life ${samples['stillLifes']}`}/>
 
-                    <button name='still Lifes button' value="stillLifes" onClick={onSampleGenerate}>Generate Still Life</button>
+                    <button name='still Lifes button' value="stillLifes" disabled={play} onClick={onSampleGenerate}>Generate Still Life</button>
                 </div>
                 <div className='sample'>
                     <h3>Oscillators</h3>
@@ -53,7 +53,7 @@ function GridSamples({sampleGen}) {
 
                     <img src={require(`../util/images/${samples['oscillators']}.gif`)} alt={`oscillator ${samples['oscillators']}`}/>
 
-                    <button name='oscillators button' value="oscillators" onClick={onSampleGenerate}>Generate Oscillator</button>
+                    <button name='oscillators button' value="oscillators" disabled={play} onClick={onSampleGenerate}>Generate Oscillator</button>
                 </div>
                 <div className='sample'>
                     <h3>Spaceships</h3>
@@ -66,7 +66,7 @@ function GridSamples({sampleGen}) {
 
                     <img src={require(`../util/images/${samples['spaceships']}.gif`)} alt={`spaceship ${samples['spaceships']}`}/>
 
-                    <button name='spaceships button' value="spaceships" onClick={onSampleGenerate}>Generate Spaceship</button>
+                    <button name='spaceships button' value="spaceships" disabled={play} onClick={onSampleGenerate}>Generate Spaceship</button>
                 </div>
             </div>
         </div>

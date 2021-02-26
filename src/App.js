@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useReducer } from 'react';
 import GameScreen from './components/GameScreen';
 import Buttons from './components/Buttons';
 import Rules from './components/Rules';
 import GridSamples from './components/GridSamples';
 
 import{ gridCreation, nextGeneration, sampleCreation } from './util/gridCreation';
+import {reducer, reducerState} from "./reducer/reducer.js"
 
 import './App.css';
 
-
-
 function App() {
 
+  const [state, dispatch] = useReducer(reducer, reducerState)
   const [gridSize ,setGridSize] = useState(15);
   const [grid, setGrid] = useState([[]]);
   const [play, setPlay] = useState(false);
@@ -21,9 +21,11 @@ function App() {
   
   useEffect(()=>{
     
-    setGrid(gridCreation(gridSize))
+    // setGrid(gridCreation(gridSize))
+    dispatch({type: "generateGrid"})
+    console.log("use change size")
 
-  },[gridSize])
+  },[])
 
   useEffect(()=> {
 
@@ -72,25 +74,24 @@ function App() {
   const sampleGen = (sample) => {
 
     // sampleCreation(sample,grid,gridSize)
-    setGrid(sampleCreation(sample,grid,gridSize))
-    // console.log('sample gen')
-    
+    if (!play){
+      setGrid(sampleCreation(sample,grid,gridSize))
+    }
   }
 
   return (
     
     <div className="App">
       <header className="header">
-        <h1><a href="/">Game of Life</a></h1>
+        <h1><a href={window.location.href}>Game of Life</a></h1>
       </header>
 
       <main className="content">
+        <Buttons dispatch={dispatch} state={state} speed={speed} setSpeed={setSpeed} generations={generations} setPlay={setPlay} play={play} gridSize={gridSize} updateGrid={updateGrid} clearGrid={clearGrid} nextGen={nextGen}/>
 
-        <Buttons speed={speed} setSpeed={setSpeed} generations={generations} setPlay={setPlay} play={play} gridSize={gridSize} updateGrid={updateGrid} clearGrid={clearGrid} nextGen={nextGen}/>
+        <GameScreen dispatch={dispatch} state={state} grid={grid} changeCell={changeCell}/>
 
-        <GameScreen grid={grid} changeCell={changeCell}/>
-
-        <GridSamples sampleGen={sampleGen}/>
+        <GridSamples sampleGen={sampleGen} play={play}/>
 
         <Rules/>
 

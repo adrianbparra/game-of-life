@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-function Buttons({generations, speed, setSpeed, setPlay, play, updateGrid, clearGrid, nextGen}) {
+function Buttons({state, dispatch, generations, speed, setSpeed, setPlay, play, updateGrid, clearGrid, nextGen}) {
     
     const [gridSize, setGridsize] = useState(15)
 
@@ -15,8 +15,7 @@ function Buttons({generations, speed, setSpeed, setPlay, play, updateGrid, clear
     return (
 
         <div className="buttons">
-
-            <p>Generations: {generations}</p>
+            <p>Generations: {state.generation}</p>
             <div className="actions-container">
                 <button className="clear" onClick={clearGrid}>Clear</button>
 
@@ -42,15 +41,24 @@ function Buttons({generations, speed, setSpeed, setPlay, play, updateGrid, clear
                     className="slider" 
                     id="speedRange" 
                     onChange={updateGridSize} 
-                    onClick={()=> updateGrid(gridSize)} 
+                    onClick={()=> dispatch({
+                                type: "updateSize",
+                                payload: gridSize
+                            })} 
                     onKeyPress={(e) => { 
                         if (e.key === "Enter"){
-                            updateGrid(gridSize)
+                            dispatch({
+                                type: "updateSize",
+                                payload: gridSize
+                            })
                         }
                     }} 
-                    onTouchEnd={() => updateGrid(gridSize)}
+                    onTouchEnd={() => dispatch({
+                                    type: "updateSize",
+                                    payload: gridSize
+                                })}
                 />
-                <label className="grid-size" htmlFor="speedRange">{gridSize} x {gridSize}</label>
+                <label className="grid-size" htmlFor="speedRange">{state.size} x {state.size}</label>
 
             </div>
         </div>

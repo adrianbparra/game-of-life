@@ -226,13 +226,15 @@ button:disabled {
 
 .sample-options {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
 }
 
 .sample {
   display: flex;
   flex-direction: column;
-
+  max-width: 320px;
+  margin-bottom: 2rem;
 }
 
 .sample > * {
@@ -247,6 +249,15 @@ button:disabled {
   height: 35px;
   margin-bottom: .4rem;
   font-size: x-large;
+
+}
+
+@media screen and (min-width: 1400px) {
+
+  .sample-options {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 
 }
 /* Rules Component */

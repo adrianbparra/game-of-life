@@ -1,5 +1,5 @@
 
-const reducerState = {
+const initialState = {
     "generation": 0,
     "size": 15,
     "grid": []
@@ -8,6 +8,12 @@ const reducerState = {
 function reducer(state, action) {
 
     switch (action.type) {
+        case "CLEAR_GRID":
+            console.log("clear grid reduce")
+            return {
+                ...state,
+
+            }
         case 'nextGeneration':
             console.log("nextGeneration")
             break
@@ -69,4 +75,4 @@ function reducer(state, action) {
     }
 }
 
-export {reducer, reducerState}
+export { reducer, initialState }

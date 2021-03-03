@@ -1,17 +1,20 @@
 import React, { useState, useEffect, useReducer } from 'react';
+
 import GameScreen from './components/GameScreen';
 import Buttons from './components/Buttons';
 import Rules from './components/Rules';
 import GridSamples from './components/GridSamples';
 
+import { GridProvider } from "./util/context";
+
 import{ gridCreation, nextGeneration, sampleCreation } from './util/gridCreation';
-import {reducer, reducerState} from "./reducer/reducer.js"
+import {reducer, initialState} from "./util/reducer.js";
 
 import './App.css';
 
 function App() {
 
-  const [state, dispatch] = useReducer(reducer, reducerState)
+  const [state, dispatch] = useReducer(reducer, initialState)
   const [gridSize ,setGridSize] = useState(15);
   const [grid, setGrid] = useState([[]]);
   const [play, setPlay] = useState(false);
@@ -80,28 +83,28 @@ function App() {
   }
 
   return (
-    
-    <div className="App">
-      <header className="header">
-        <h1><a href={window.location.href}>Game of Life</a></h1>
-      </header>
+    <GridProvider>
+      <div className="App">
+        <header className="header">
+          <h1><a href={window.location.href}>Game of Life</a></h1>
+        </header>
 
-      <main className="content">
-        <Buttons dispatch={dispatch} state={state} speed={speed} setSpeed={setSpeed} generations={generations} setPlay={setPlay} play={play} gridSize={gridSize} updateGrid={updateGrid} clearGrid={clearGrid} nextGen={nextGen}/>
+        <main className="content">
+          <Buttons dispatch={dispatch} state={state} speed={speed} setSpeed={setSpeed} generations={generations} setPlay={setPlay} play={play} gridSize={gridSize} updateGrid={updateGrid} clearGrid={clearGrid} nextGen={nextGen}/>
 
-        <GameScreen dispatch={dispatch} state={state} grid={grid} changeCell={changeCell}/>
+          <GameScreen dispatch={dispatch} state={state} grid={grid} changeCell={changeCell}/>
 
-        <GridSamples sampleGen={sampleGen} play={play}/>
+          <GridSamples sampleGen={sampleGen} play={play}/>
 
-        <Rules/>
+          <Rules/>
 
-      </main>
+        </main>
 
-      <footer>
-        <small>Created by <a href='https://adrianbparra.com/' target="_blank" rel="noopener noreferrer">adrianbparra.com</a> </small>
-      </footer>
-    </div>
-    
+        <footer>
+          <small>Created by <a href='https://adrianbparra.com/' target="_blank" rel="noopener noreferrer">adrianbparra.com</a> </small>
+        </footer>
+      </div>
+    </GridProvider>
   );
 }
 

@@ -25,7 +25,7 @@ function App() {
   useEffect(()=>{
     
     // setGrid(gridCreation(gridSize))
-    dispatch({type: "generateGrid"})
+    dispatch({type: "GENERATE_GRID"})
     console.log("use change size")
 
   },[])

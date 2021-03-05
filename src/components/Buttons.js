@@ -1,15 +1,17 @@
-import React, {useState} from 'react';
+import React, { useState, useContext} from 'react';
 
-function Buttons({state, dispatch, generations, speed, setSpeed, setPlay, play, updateGrid, clearGrid, nextGen}) {
+import { GridContext } from "../util/context.js";
+
+function Buttons({ dispatch, nextGen}) {
     
+    const { state, setPlay, clearGrid, changeSpeed }  = useContext(GridContext);
+
+    console.log(state)
+
     const [gridSize, setGridsize] = useState(15)
 
     const updateGridSize = (e) => {
         setGridsize(e.target.value)
-    }
-
-    const onPlayGen = () => {
-        setPlay(!play)
     }
 
     return (
@@ -17,27 +19,27 @@ function Buttons({state, dispatch, generations, speed, setSpeed, setPlay, play, 
         <div className="buttons">
             <p>Generations: {state.generation}</p>
             <div className="actions-container">
-                <button className="clear" onClick={clearGrid}>Clear</button>
+                <button className="clear" onClick={() =>{clearGrid()}}>Clear</button>
 
-                <button className="play" onClick={onPlayGen}>{play ? 'Pause': 'Play'}</button>
+                <button className="play" onClick={() => {setPlay()}} >{state.play ? 'Pause': 'Play'}</button>
                 
-                <button className="next-gen" disabled={play} onClick={nextGen}>Next Generation</button>
+                <button className="next-gen" disabled={state.play} onClick={nextGen}>Next Generation</button>
 
             </div>
 
             <div className="speed-container">
-                <button onClick={()=> setSpeed(speed*2)}>Slower</button>
-                <p>Speed: {speed}ms</p>
-                <button onClick={()=> setSpeed(speed/2)}>Faster</button>
+                <button onClick={()=> changeSpeed("INCREASE")}>Slower</button>
+                <p>Speed: {state.speed}ms</p>
+                <button onClick={()=> changeSpeed("DECREASE")}>Faster</button>
             </div>
 
             <div className="range-container">
                 <input 
-                    disabled={play} 
+                    disabled={state.play} 
                     type="range" 
                     min="4" 
                     max="50" 
-                    value={gridSize} 
+                    value={state.size} 
                     className="slider" 
                     id="speedRange" 
                     onChange={updateGridSize} 

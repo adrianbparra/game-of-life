@@ -19,14 +19,23 @@ function GridProvider(props) {
         console.log("clear grid provider")
         dispatch({type: "CLEAR_GRID"})
     }
+    
+    function setPlay() {
+        dispatch({type:"SET_PLAY"})
+    }
+
+    function changeSpeed(value) {
+        
+        dispatch({type:"SET_SPEED", payload: value})
+    }
 
 
     return (
         <GridContext.Provider
-            value = {{state, clearGrid}}
+            value = {{state, clearGrid, setPlay, changeSpeed}}
             {...props}
         />
     )
 }
 
-export { GridProvider }
+export { GridProvider , GridContext }

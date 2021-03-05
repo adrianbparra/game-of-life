@@ -1,18 +1,44 @@
+import { gridCreation } from "./gridCreation.js";
 
 const initialState = {
     "generation": 0,
     "size": 15,
-    "grid": []
+    "grid": [],
+    "play": false,
+    "speed" : 200
 }
 
 function reducer(state, action) {
 
     switch (action.type) {
-        case "CLEAR_GRID":
-            console.log("clear grid reduce")
+        case "SET_SPEED":
+
+            var speed = 0
+
+            if (action.payload === "INCREASE"){
+                speed = state.speed / 2
+            } else if (action.payload === "DECREASE") {
+                speed = state.speed * 2
+            }
+
             return {
                 ...state,
+                "speed" : speed
+            }
+        case "SET_PLAY":
+            return {
+                ...state,
+                "play" : !state.play
+            }
 
+        case "CLEAR_GRID":
+            console.log("clear grid reduce")
+            const newGrid = gridCreation(state.size)
+
+            return {
+                ...state,
+                "grid": newGrid,
+                "play" : false
             }
         case 'nextGeneration':
             console.log("nextGeneration")
@@ -26,46 +52,19 @@ function reducer(state, action) {
             };
             
         
-        case "changeCell":
-            const {x, y} = action.payload;
-            const cell = state.grid[y][x]
-
-            cell.alive = !cell.alive
-
-            console.log(cell)
-
-            // state.grid[y][x] = cell
-            // const newState = [...state.grid];
-            // newState[y][x].alive = !newState[y][x].alive;
-            // console.log(x,y)
+        case "CHANGE_CELL":
 
             return {
                 ...state,
                 "grid": state.grid
             };
 
-        case "generateGrid":
-            const newGrid = []
-      
-            for(let i = 0; i < state.size; i++){
-
-                const row = []
-                for(let j = 0; j < state.size; j++){
-                    
-                    const col = {'alive': false, 'x' : j,'y' : i}
-                    row.push(col)
-
-                }
-
-                newGrid.push(row)
-
-            }
-
-            console.log(newGrid)
+        case "GENERATE_GRID":
+            const genGrid = gridCreation(state.size)
 
             return {
                 ...state,
-                "grid": newGrid
+                "grid": genGrid
             }
 
             

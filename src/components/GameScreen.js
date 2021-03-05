@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { GridContext } from "../util/context.js";
+
+
 import Cell from "./Cell";
 
-function GameScreen({grid,changeCell,dispatch, state}) {
+function GameScreen() {
+    const { state } = useContext(GridContext);
+
 
     return (
 
@@ -10,7 +15,7 @@ function GameScreen({grid,changeCell,dispatch, state}) {
                 {   
                     state.grid.map((row,i) => {
                         return (<div className="row" key={i}>
-                            {row.map(cellItem => <Cell key={`${cellItem.y}${cellItem.x}`} cellItem={cellItem} dispatch={dispatch}/>)}
+                            {row.map(cellItem => <Cell key={`${cellItem.y}${cellItem.x}`} cellItem={cellItem} />)}
                         </div>)
                     })
                 }

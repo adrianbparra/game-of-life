@@ -1,16 +1,14 @@
 import React, { useState, useContext} from 'react';
-
 import { GridContext } from "../util/context.js";
 
-function Buttons({ dispatch, nextGen}) {
-    
-    const { state, setPlay, clearGrid, changeSpeed }  = useContext(GridContext);
+function Buttons({nextGen}) {
+    const { state, setPlay, clearGrid, changeSpeed, updateSize }  = useContext(GridContext);
 
-    console.log(state)
+    console.log("Buttons",state)
 
-    const [gridSize, setGridsize] = useState(15)
+    const [gridSize, setGridsize] = useState(state.size)
 
-    const updateGridSize = (e) => {
+    const changeGridSize = (e) => {
         setGridsize(e.target.value)
     }
 
@@ -39,26 +37,17 @@ function Buttons({ dispatch, nextGen}) {
                     type="range" 
                     min="4" 
                     max="50" 
-                    value={state.size} 
+                    value={gridSize} 
                     className="slider" 
                     id="speedRange" 
-                    onChange={updateGridSize} 
-                    onClick={()=> dispatch({
-                                type: "updateSize",
-                                payload: gridSize
-                            })} 
+                    onChange={changeGridSize} 
+                    onClick={()=> updateSize(gridSize)} 
                     onKeyPress={(e) => { 
                         if (e.key === "Enter"){
-                            dispatch({
-                                type: "updateSize",
-                                payload: gridSize
-                            })
+                            updateSize(gridSize)
                         }
                     }} 
-                    onTouchEnd={() => dispatch({
-                                    type: "updateSize",
-                                    payload: gridSize
-                                })}
+                    onTouchEnd={() => updateSize(gridSize)}
                 />
                 <label className="grid-size" htmlFor="speedRange">{state.size} x {state.size}</label>
 

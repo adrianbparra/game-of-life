@@ -7,7 +7,7 @@ const Cell = ({dispatch, cellItem}) => {
 
 
     return (
-        <div className={`${alive ? "alive": ''} cell`} onClick={()=> dispatch({type: "changeCell", payload:{x,y}})}>
+        <div className={`${alive ? "alive": ''} cell`} >
         </div>
     )
 

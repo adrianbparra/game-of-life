@@ -1,11 +1,11 @@
-import React, { useState, useEffect, useReducer } from 'react';
+import React, { useState, useEffect, useReducer, useContext } from 'react';
 
 import GameScreen from './components/GameScreen';
 import Buttons from './components/Buttons';
 import Rules from './components/Rules';
 import GridSamples from './components/GridSamples';
 
-import { GridProvider } from "./util/context";
+import { GridContext } from "./util/context";
 
 import{ gridCreation, nextGeneration, sampleCreation } from './util/gridCreation';
 import {reducer, initialState} from "./util/reducer.js";
@@ -13,8 +13,10 @@ import {reducer, initialState} from "./util/reducer.js";
 import './App.css';
 
 function App() {
+  const { state }  = useContext(GridContext);
+  console.log("APP", state)
 
-  const [state, dispatch] = useReducer(reducer, initialState)
+  // const [state, dispatch] = useReducer(reducer, initialState)
   const [gridSize ,setGridSize] = useState(15);
   const [grid, setGrid] = useState([[]]);
   const [play, setPlay] = useState(false);
@@ -23,10 +25,8 @@ function App() {
 
   
   useEffect(()=>{
-    
-    // setGrid(gridCreation(gridSize))
-    dispatch({type: "GENERATE_GRID"})
-    console.log("use change size")
+
+    console.log("app useEffect")
 
   },[])
 
@@ -37,37 +37,37 @@ function App() {
       setGrid(nextGeneration(grid))
     }, speed);
 
-  },[grid,play])
+  },[grid,state.play])
 
 
-  const changeCell = ({x,y}) => {
+  // const changeCell = ({x,y}) => {
 
-    if (!play){
-      const newState = [...grid];
-      newState[y][x].alive = !newState[y][x].alive;
-      setGrid(newState);
-    }
-
-
-  }
+  //   if (!play){
+  //     const newState = [...grid];
+  //     newState[y][x].alive = !newState[y][x].alive;
+  //     setGrid(newState);
+  //   }
 
 
-  const updateGrid = (val) => {
-    setGridSize(val)
-  }
+  // }
 
-  const clearGrid = () => {
-    setPlay(false)
 
-    setTimeout(() => {
-      setGrid(gridCreation(gridSize))
+  // const updateGrid = (val) => {
+  //   setGridSize(val)
+  // }
+
+  // const clearGrid = () => {
+  //   setPlay(false)
+
+  //   setTimeout(() => {
+  //     setGrid(gridCreation(gridSize))
       
-      setGeneration(0)
+  //     setGeneration(0)
 
-      setSpeed(200)
-    }, speed);
+  //     setSpeed(200)
+  //   }, speed);
 
-  }
+  // }
 
   const nextGen = () => {
     setGeneration(generations + 1)
@@ -83,28 +83,26 @@ function App() {
   }
 
   return (
-    <GridProvider>
-      <div className="App">
-        <header className="header">
-          <h1><a href={window.location.href}>Game of Life</a></h1>
-        </header>
+    <div className="App">
+      <header className="header">
+        <h1><a href={window.location.href}>Game of Life</a></h1>
+      </header>
 
-        <main className="content">
-          <Buttons dispatch={dispatch} state={state} speed={speed} setSpeed={setSpeed} generations={generations} setPlay={setPlay} play={play} gridSize={gridSize} updateGrid={updateGrid} clearGrid={clearGrid} nextGen={nextGen}/>
+      <main className="content">
+        <Buttons nextGen={nextGen}/>
 
-          <GameScreen dispatch={dispatch} state={state} grid={grid} changeCell={changeCell}/>
+        <GameScreen />
 
-          <GridSamples sampleGen={sampleGen} play={play}/>
+        <GridSamples sampleGen={sampleGen} play={play}/>
 
-          <Rules/>
+        <Rules/>
 
-        </main>
+      </main>
 
-        <footer>
-          <small>Created by <a href='https://adrianbparra.com/' target="_blank" rel="noopener noreferrer">adrianbparra.com</a> </small>
-        </footer>
-      </div>
-    </GridProvider>
+      <footer>
+        <small>Created by <a href='https://adrianbparra.com/' target="_blank" rel="noopener noreferrer">adrianbparra.com</a> </small>
+      </footer>
+    </div>
   );
 }
 

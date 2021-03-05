@@ -6,7 +6,8 @@ import { reducer, initialState } from "./reducer.js";
 const GridContext = createContext({
     "generation": 0,
     "size": 15,
-    "grid": gridCreation(15)
+    "grid": [],
+    "clearGrid" : ()=>{}
 })
 
 
@@ -29,10 +30,14 @@ function GridProvider(props) {
         dispatch({type:"SET_SPEED", payload: value})
     }
 
+    function updateSize(size) {
+        dispatch({type:"UPDATE_SIZE", payload: size})
+    }
+
 
     return (
         <GridContext.Provider
-            value = {{state, clearGrid, setPlay, changeSpeed}}
+            value = {{state, clearGrid, setPlay, changeSpeed, updateSize}}
             {...props}
         />
     )

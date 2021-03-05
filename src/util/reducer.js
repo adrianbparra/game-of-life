@@ -3,7 +3,7 @@ import { gridCreation } from "./gridCreation.js";
 const initialState = {
     "generation": 0,
     "size": 15,
-    "grid": [],
+    "grid": gridCreation(15),
     "play": false,
     "speed" : 200
 }
@@ -33,26 +33,40 @@ function reducer(state, action) {
 
         case "CLEAR_GRID":
             console.log("clear grid reduce")
-            const newGrid = gridCreation(state.size)
+            var newGrid = gridCreation(state.size)
 
             return {
                 ...state,
                 "grid": newGrid,
                 "play" : false
             }
+        case "UPDATE_SIZE":
+            console.log("update size")
+
+            newGrid = gridCreation(action.payload)
+
+            return {
+                ...state,
+                "size" : action.payload,
+                "grid" : newGrid
+            }
+
         case 'nextGeneration':
             console.log("nextGeneration")
             break
         
-        case "updateSize":
-            console.log("update size")
-            return {
-                ...state,
-                "size": action.payload
-            };
+        // case "updateSize":
+        //     console.log("update size")
+        //     return {
+        //         ...state,
+        //         "size": action.payload
+        //     };
             
         
         case "CHANGE_CELL":
+
+            newGrid = gridCreation(state.size)
+
 
             return {
                 ...state,
@@ -60,11 +74,11 @@ function reducer(state, action) {
             };
 
         case "GENERATE_GRID":
-            const genGrid = gridCreation(state.size)
+            newGrid = gridCreation(state.size)
 
             return {
                 ...state,
-                "grid": genGrid
+                "grid": newGrid
             }
 
             

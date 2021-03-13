@@ -1,4 +1,4 @@
-import { gridCreation } from "./gridCreation.js";
+import { gridCreation, nextGeneration } from "./gridCreation.js";
 
 const initialState = {
     "generation": 0,
@@ -37,6 +37,7 @@ function reducer(state, action) {
 
             return {
                 ...state,
+                "generation": 0,
                 "grid": newGrid,
                 "play" : false
             }
@@ -51,27 +52,37 @@ function reducer(state, action) {
                 "grid" : newGrid
             }
 
-        case 'nextGeneration':
-            console.log("nextGeneration")
-            break
-        
-        // case "updateSize":
-        //     console.log("update size")
-        //     return {
-        //         ...state,
-        //         "size": action.payload
-        //     };
-            
-        
-        case "CHANGE_CELL":
+        case "UPDATE_CELL":
 
-            newGrid = gridCreation(state.size)
+            newGrid = JSON.parse(JSON.stringify(state.grid));
+            const [x, y] = action.payload;
+            console.log(newGrid[y][x])
+            
+                
+            if (!state.play){
+                newGrid[y][x].alive = !newGrid[y][x].alive;
+            }
+
+            
 
 
             return {
                 ...state,
-                "grid": state.grid
+                "grid": newGrid
+            }
+
+        case 'NEXT_GENERATION':
+        
+            console.log("next generation")
+            newGrid = nextGeneration(state.grid)
+
+            return {
+                ...state,
+                "generation": state.generation + 1,
+                "grid" : newGrid
             };
+            
+        
 
         case "GENERATE_GRID":
             newGrid = gridCreation(state.size)

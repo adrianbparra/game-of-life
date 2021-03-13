@@ -7,7 +7,7 @@ const GridContext = createContext({
     "generation": 0,
     "size": 15,
     "grid": [],
-    "clearGrid" : ()=>{}
+    "clearGrid" : () => {}
 })
 
 
@@ -34,10 +34,18 @@ function GridProvider(props) {
         dispatch({type:"UPDATE_SIZE", payload: size})
     }
 
+    function updateCell(x,y) {
+        dispatch({type:"UPDATE_CELL", payload: [x,y] })
+    }
+
+    function nextGeneration(){
+        dispatch({type : "NEXT_GENERATION"})
+    }
+
 
     return (
         <GridContext.Provider
-            value = {{state, clearGrid, setPlay, changeSpeed, updateSize}}
+            value = {{state, clearGrid, setPlay, changeSpeed, updateSize, updateCell, nextGeneration}}
             {...props}
         />
     )

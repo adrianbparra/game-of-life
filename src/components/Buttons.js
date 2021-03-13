@@ -1,8 +1,8 @@
 import React, { useState, useContext} from 'react';
 import { GridContext } from "../util/context.js";
 
-function Buttons({nextGen}) {
-    const { state, setPlay, clearGrid, changeSpeed, updateSize }  = useContext(GridContext);
+function Buttons() {
+    const { state, setPlay, clearGrid, changeSpeed, updateSize, nextGeneration }  = useContext(GridContext);
 
     console.log("Buttons",state)
 
@@ -21,7 +21,7 @@ function Buttons({nextGen}) {
 
                 <button className="play" onClick={() => {setPlay()}} >{state.play ? 'Pause': 'Play'}</button>
                 
-                <button className="next-gen" disabled={state.play} onClick={nextGen}>Next Generation</button>
+                <button className="next-gen" disabled={state.play} onClick={()=> {nextGeneration()}}>Next Generation</button>
 
             </div>
 

@@ -1,16 +1,13 @@
-import React,{ useState } from "react";
+import React,{ useState, useContext } from "react";
+import { GridContext } from "../util/context.js";
 
-// import block from '../util/images/block.jpg'
-
-
-function GridSamples({sampleGen, play}) {
+function GridSamples() {
+    const { state, generateSample } = useContext(GridContext);
 
     const [samples,setSamples] = useState({'stillLifes':'block', 'oscillators':'blinker','spaceships':'glider'})
 
 
     function onSampleChange(e) {
-        // console.log(e.target.value)
-        // setStillLife(e.target.value)
         setSamples({
             ...samples,
             [e.target.name]: e.target.value
@@ -19,7 +16,7 @@ function GridSamples({sampleGen, play}) {
     }
 
     function onSampleGenerate(e) {
-        sampleGen(samples[e.target.value])
+        generateSample(samples[e.target.value])
     }
     
 
@@ -39,7 +36,7 @@ function GridSamples({sampleGen, play}) {
 
                     <img src={require(`../util/images/${samples['stillLifes']}.jpg`)} alt={`still life ${samples['stillLifes']}`}/>
 
-                    <button name='still Lifes button' value="stillLifes" disabled={play} onClick={onSampleGenerate}>Generate Still Life</button>
+                    <button name='still Lifes button' value="stillLifes" disabled={state.play} onClick={onSampleGenerate}>Generate Still Life</button>
                 </div>
                 <div className='sample'>
                     <h3>Oscillators</h3>
@@ -53,7 +50,7 @@ function GridSamples({sampleGen, play}) {
 
                     <img src={require(`../util/images/${samples['oscillators']}.gif`)} alt={`oscillator ${samples['oscillators']}`}/>
 
-                    <button name='oscillators button' value="oscillators" disabled={play} onClick={onSampleGenerate}>Generate Oscillator</button>
+                    <button name='oscillators button' value="oscillators" disabled={state.play} onClick={onSampleGenerate}>Generate Oscillator</button>
                 </div>
                 <div className='sample'>
                     <h3>Spaceships</h3>
@@ -66,7 +63,7 @@ function GridSamples({sampleGen, play}) {
 
                     <img src={require(`../util/images/${samples['spaceships']}.gif`)} alt={`spaceship ${samples['spaceships']}`}/>
 
-                    <button name='spaceships button' value="spaceships" disabled={play} onClick={onSampleGenerate}>Generate Spaceship</button>
+                    <button name='spaceships button' value="spaceships" disabled={state.play} onClick={onSampleGenerate}>Generate Spaceship</button>
                 </div>
             </div>
         </div>

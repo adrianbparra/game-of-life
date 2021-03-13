@@ -42,10 +42,15 @@ function GridProvider(props) {
         dispatch({type : "NEXT_GENERATION"})
     }
 
+    function generateSample(sample) {
+        console.log(sample)
+        dispatch({type: "GENERATE_SAMPLE", payload: sample})
+    }
+
 
     return (
         <GridContext.Provider
-            value = {{state, clearGrid, setPlay, changeSpeed, updateSize, updateCell, nextGeneration}}
+            value = {{state, clearGrid, setPlay, changeSpeed, updateSize, updateCell, nextGeneration, generateSample}}
             {...props}
         />
     )

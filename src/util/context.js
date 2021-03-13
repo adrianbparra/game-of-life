@@ -15,9 +15,7 @@ const GridContext = createContext({
 function GridProvider(props) {
     const [state, dispatch] = useReducer(reducer, initialState);
 
-
     function clearGrid() {
-        console.log("clear grid provider")
         dispatch({type: "CLEAR_GRID"})
     }
     
@@ -26,7 +24,6 @@ function GridProvider(props) {
     }
 
     function changeSpeed(value) {
-        
         dispatch({type:"SET_SPEED", payload: value})
     }
 
@@ -43,7 +40,6 @@ function GridProvider(props) {
     }
 
     function generateSample(sample) {
-        console.log(sample)
         dispatch({type: "GENERATE_SAMPLE", payload: sample})
     }
 

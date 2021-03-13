@@ -24,7 +24,6 @@ function gridCreation(gridSize) {
 function nextGeneration(grid) {
     
     const copyGrid = [...grid]
-    // console.log(copyGrid)
 
     const newGrid = []
 
@@ -110,21 +109,12 @@ function nextGeneration(grid) {
 
 
 function sampleCreation(sample, grid,gridSize) {
-    // does it matter what sample it is here?
-    // sample is the string of what sample it is
-    // how would it match the string to the object of the sample
 
-    // check is sample is in object?
     if (samples.hasOwnProperty(sample)){
 
-        // get random values on where the sample will be displayed
-        // minus the size of the sample
-        // console.log(gridSize)
         const {x,y,location} = samples[sample]
-        // if grid is smaller than minSize
-            // create a new grid with size 2x
+
         if (gridSize < x || gridSize < y){
-            // console.log("grid smaller")
             const minSize = Math.max(x,y)
             gridSize = minSize
 
@@ -134,16 +124,9 @@ function sampleCreation(sample, grid,gridSize) {
         const randomX = Math.floor(Math.random() * (gridSize - x))
         const randomY = Math.floor(Math.random() * (gridSize - y))
 
-        // console.log(randomX, randomY)
-
-        // loop over grid
         const newGrid = [...grid]
         
-        // loop on location for grid instead and update values
-        console.log("random",randomX,randomY)
-
         for (const loc of location) {
-            console.log("location",loc[0],loc[1])
 
             const cell = newGrid[loc[0]+randomY][loc[1]+randomX]
 

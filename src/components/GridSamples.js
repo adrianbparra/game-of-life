@@ -12,7 +12,6 @@ function GridSamples() {
             ...samples,
             [e.target.name]: e.target.value
         })
-        console.log(samples)
     }
 
     function onSampleGenerate(e) {

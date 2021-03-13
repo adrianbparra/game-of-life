@@ -11,12 +11,11 @@ import './App.css';
 
 function App() {
   const { state, nextGeneration }  = useContext(GridContext);
-  console.log("APP", state)
 
   useEffect(()=>{
 
     state.play && setTimeout(() => {
-      console.log("update life")
+
       nextGeneration()
 
     }, state.speed);

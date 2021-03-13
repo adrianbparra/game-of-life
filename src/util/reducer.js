@@ -32,7 +32,6 @@ function reducer(state, action) {
             }
 
         case "CLEAR_GRID":
-            console.log("clear grid reduce")
             var newGrid = gridCreation(state.size)
 
             return {
@@ -43,8 +42,6 @@ function reducer(state, action) {
             }
 
         case "UPDATE_SIZE":
-            console.log("update size")
-
             newGrid = gridCreation(action.payload)
 
             return {
@@ -54,11 +51,8 @@ function reducer(state, action) {
             }
 
         case "UPDATE_CELL":
-
             newGrid = JSON.parse(JSON.stringify(state.grid));
             const [x, y] = action.payload;
-            console.log(newGrid[y][x])
-            
                 
             if (!state.play){
                 newGrid[y][x].alive = !newGrid[y][x].alive;
@@ -70,8 +64,6 @@ function reducer(state, action) {
             }
 
         case 'NEXT_GENERATION':
-        
-            console.log("next generation")
             newGrid = nextGeneration(state.grid)
 
             return {
@@ -89,7 +81,6 @@ function reducer(state, action) {
             }
 
         case "GENERATE_SAMPLE":
-
             const gridCopy = JSON.parse(JSON.stringify(state.grid));
 
             newGrid = sampleCreation(action.payload, gridCopy, state.size)

@@ -4,8 +4,6 @@ import { GridContext } from "../util/context.js";
 function Buttons() {
     const { state, setPlay, clearGrid, changeSpeed, updateSize, nextGeneration }  = useContext(GridContext);
 
-    console.log("Buttons",state)
-
     const [gridSize, setGridsize] = useState(state.size)
 
     const changeGridSize = (e) => {

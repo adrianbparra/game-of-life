@@ -1,4 +1,5 @@
-# Cellular Automata and Conway's "Game of Life"
+# <img src="./public/logo192.png" width="24"> Cellular Automata and Conway's "Game of Life" <img src="./public/logo192.png" width="24">
+
 
 Welcome to John Conway's "Game of Life"! This is a computer science
 classic from 1970, a program that simulates a _cellular automaton_
@@ -9,8 +10,29 @@ Over the course of two weeks I will be working on creating my own web applicatio
 in which I will be able to run "Game of Life". I will allow me to learn and practice
 what I have previously studied in Computer Science.
 
-## Objectives
+## Built with
+  * [React](https://reactjs.org) - Web framework
+  
+  ### State Management
 
+  ```
+    useContext
+    useReducer
+  ```
+
+
+## Check it out
+  ### [https://adrianbparra.com/game-of-life/](https://adrianbparra.com/game-of-life/)
+
+## Setup
+
+```
+  yarn install
+
+  yarn start
+```
+
+## Objectives
 
 * I should be able to describe the rules of Conway’s “Game of
   Life”

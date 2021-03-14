@@ -24,9 +24,9 @@ function Buttons() {
             </div>
 
             <div className="speed-container">
-                <button onClick={()=> changeSpeed("INCREASE")}>Slower</button>
+                <button onClick={()=> changeSpeed("DECREASE")}>Slower</button>
                 <p>Speed: {state.speed}ms</p>
-                <button onClick={()=> changeSpeed("DECREASE")}>Faster</button>
+                <button onClick={()=> changeSpeed("INCREASE")}>Faster</button>
             </div>
 
             <div className="range-container">

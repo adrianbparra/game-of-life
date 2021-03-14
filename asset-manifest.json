@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/game-of-life/static/css/main.0ad10205.chunk.css",
-    "main.js": "/game-of-life/static/js/main.e0f4675d.chunk.js",
-    "main.js.map": "/game-of-life/static/js/main.e0f4675d.chunk.js.map",
+    "main.css": "/game-of-life/static/css/main.315aed35.chunk.css",
+    "main.js": "/game-of-life/static/js/main.acd0d748.chunk.js",
+    "main.js.map": "/game-of-life/static/js/main.acd0d748.chunk.js.map",
     "runtime-main.js": "/game-of-life/static/js/runtime-main.1dafd470.js",
     "runtime-main.js.map": "/game-of-life/static/js/runtime-main.1dafd470.js.map",
-    "static/js/2.cd1461cf.chunk.js": "/game-of-life/static/js/2.cd1461cf.chunk.js",
-    "static/js/2.cd1461cf.chunk.js.map": "/game-of-life/static/js/2.cd1461cf.chunk.js.map",
+    "static/js/2.0121725b.chunk.js": "/game-of-life/static/js/2.0121725b.chunk.js",
+    "static/js/2.0121725b.chunk.js.map": "/game-of-life/static/js/2.0121725b.chunk.js.map",
     "index.html": "/game-of-life/index.html",
-    "precache-manifest.3d152385fcb477016870ce40fbe1d14f.js": "/game-of-life/precache-manifest.3d152385fcb477016870ce40fbe1d14f.js",
+    "precache-manifest.2eafbbd95f7a8bb654a49fe34cc3e15a.js": "/game-of-life/precache-manifest.2eafbbd95f7a8bb654a49fe34cc3e15a.js",
     "service-worker.js": "/game-of-life/service-worker.js",
-    "static/css/main.0ad10205.chunk.css.map": "/game-of-life/static/css/main.0ad10205.chunk.css.map",
-    "static/js/2.cd1461cf.chunk.js.LICENSE.txt": "/game-of-life/static/js/2.cd1461cf.chunk.js.LICENSE.txt",
+    "static/css/main.315aed35.chunk.css.map": "/game-of-life/static/css/main.315aed35.chunk.css.map",
+    "static/js/2.0121725b.chunk.js.LICENSE.txt": "/game-of-life/static/js/2.0121725b.chunk.js.LICENSE.txt",
     "static/media/beacon.gif": "/game-of-life/static/media/beacon.51a9d85e.gif",
     "static/media/beehive.jpg": "/game-of-life/static/media/beehive.a8305e23.jpg",
     "static/media/blinker.gif": "/game-of-life/static/media/blinker.846a46bb.gif",
@@ -29,8 +29,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.1dafd470.js",
-    "static/js/2.cd1461cf.chunk.js",
-    "static/css/main.0ad10205.chunk.css",
-    "static/js/main.e0f4675d.chunk.js"
+    "static/js/2.0121725b.chunk.js",
+    "static/css/main.315aed35.chunk.css",
+    "static/js/main.acd0d748.chunk.js"
   ]
 }

@@ -22,7 +22,7 @@ what I have previously studied in Computer Science.
 
 
 ## Check it out
-  ### [https://adrianbparra.com/game-of-life/](https://adrianbparra.com/game-of-life/)
+  ### [https://gameoflife.adrianbparra.com/](https://gameoflife.adrianbparra.com/)
 
 ## Setup
 

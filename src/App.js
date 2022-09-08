@@ -14,11 +14,20 @@ function App() {
 
   useEffect(()=>{
 
-    state.play && setTimeout(() => {
+    var timeout
 
-      nextGeneration()
+    if (state.play){
+      
+      timeout = setTimeout(() => {
+  
+        nextGeneration()
+  
+      }, state.speed);
+    }
 
-    }, state.speed);
+    return () => {
+      clearTimeout(timeout)
+    }
 
   },[state.grid,state.play])
 

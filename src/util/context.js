@@ -1,5 +1,4 @@
 import React, {useReducer, createContext} from "react"
-import { gridCreation } from "./gridCreation.js";
 import { reducer, initialState } from "./reducer.js";
 
 

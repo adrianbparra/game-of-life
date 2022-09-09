@@ -29,7 +29,7 @@ function App() {
       clearTimeout(timeout)
     }
 
-  },[state.grid,state.play])
+  },[state.grid,state.play,state.speed])
 
 
   return (

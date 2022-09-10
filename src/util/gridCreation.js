@@ -23,9 +23,11 @@ function gridCreation(gridSize) {
 
 function nextGeneration(grid) {
     
-    const copyGrid = [...grid]
+    const copyGrid = [...grid];
 
-    const newGrid = []
+    const newGrid = [];
+
+    var changed = false;
 
     for(let i = 0; i < copyGrid.length; i++){
     
@@ -73,13 +75,15 @@ function nextGeneration(grid) {
                 
                 if (liveNeighbours === 2 || liveNeighbours === 3) {
 
-                    col.alive = true
+                    col.alive = true;
+                    
                 }
 
             } else {
 
                 if (liveNeighbours === 3){
-                    col.alive = true
+                    col.alive = true;
+                    changed = true;
                 }
             }
 
@@ -93,7 +97,7 @@ function nextGeneration(grid) {
 
     }
 
-    return newGrid
+    return {newGrid, changed}
 }
 
 

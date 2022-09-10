@@ -19,7 +19,7 @@ function Buttons() {
 
                 <button className="play" onClick={() => {setPlay()}} >{state.play ? 'Pause': 'Play'}</button>
                 
-                <button className="next-gen" disabled={state.play} onClick={()=> {nextGeneration()}}>Next Generation</button>
+                <button className="next-gen" disabled={state.play} onClick={()=> {nextGeneration("NEXT GEN")}}>Next Generation</button>
 
             </div>
 

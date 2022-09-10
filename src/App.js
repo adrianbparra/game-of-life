@@ -20,7 +20,7 @@ function App() {
       
       timeout = setTimeout(() => {
   
-        nextGeneration()
+        nextGeneration("PLAY")
   
       }, state.speed);
     }
@@ -29,7 +29,7 @@ function App() {
       clearTimeout(timeout)
     }
 
-  },[state.grid,state.play,state.speed,nextGeneration])
+  },[state.play,state.speed,nextGeneration])
 
 
   return (

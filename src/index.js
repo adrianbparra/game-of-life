@@ -8,11 +8,9 @@ import { GridProvider } from "./util/context";
 
 
 ReactDOM.render(
-  <React.StrictMode>
     <GridProvider>
       <App />
-    </GridProvider>
-  </React.StrictMode>,
+    </GridProvider>,
   document.getElementById('root')
 );
 

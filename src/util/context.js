@@ -34,8 +34,8 @@ function GridProvider(props) {
         dispatch({type:"UPDATE_CELL", payload: [x,y] })
     }
 
-    function nextGeneration(){
-        dispatch({type : "NEXT_GENERATION"})
+    function nextGeneration(status){
+        dispatch({type : "NEXT_GENERATION", payload : status})
     }
 
     function generateSample(sample) {

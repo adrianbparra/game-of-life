@@ -33,7 +33,7 @@ function reducer(state, action) {
 
         case "CLEAR_GRID":
             var newGrid = gridCreation(state.size)
-
+            console.log("clear")
             return {
                 ...state,
                 "generation": 0,
@@ -64,12 +64,16 @@ function reducer(state, action) {
             }
 
         case 'NEXT_GENERATION':
-            newGrid = nextGeneration(state.grid)
+            const nextgen = nextGeneration(state.grid)
+
+            console.log("payload",action.payload)
+            console.log("gen",nextgen.changed)
 
             return {
                 ...state,
-                "generation": state.generation + 1,
-                "grid" : newGrid
+                "generation": nextgen.changed ? state.generation + 1: state.generation,
+                "grid" : nextgen.newGrid,
+                "play" : action.payload === "NEXT GEN" ? false : nextgen.changed
             };
 
         case "GENERATE_GRID":

@@ -6,6 +6,7 @@ const GridContext = createContext({
     "generation": 0,
     "size": 15,
     "grid": [],
+    "play": false,
     "clearGrid" : () => {}
 })
 

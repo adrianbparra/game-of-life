@@ -30,14 +30,14 @@ function Buttons() {
             </div>
 
             <div className="range-container">
-                <input 
+                <input
                     disabled={state.play} 
                     type="range" 
                     min="4" 
                     max="50" 
                     value={gridSize} 
                     className="slider" 
-                    id="speedRange" 
+                    id="gridSize" 
                     onChange={changeGridSize} 
                     onClick={()=> updateSize(gridSize)} 
                     onKeyPress={(e) => { 

@@ -13,7 +13,7 @@ function Buttons() {
     return (
 
         <div className="buttons">
-            <p>Generations: {state.generation}</p>
+            <p data-testid="generations">Generations: {state.generation}</p>
             <div className="actions-container">
                 <button className="clear" onClick={() =>{clearGrid()}}>Clear</button>
 
@@ -25,7 +25,7 @@ function Buttons() {
 
             <div className="speed-container">
                 <button onClick={()=> changeSpeed("DECREASE")}>Slower</button>
-                <p>Speed: {state.speed}ms</p>
+                <p data-testid="speed">Speed: {state.speed}ms</p>
                 <button onClick={()=> changeSpeed("INCREASE")}>Faster</button>
             </div>
 

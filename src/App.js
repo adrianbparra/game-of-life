@@ -35,7 +35,7 @@ function App() {
   return (
     <div className="App">
       <header className="header">
-        <h1><a href={window.location.href}>Game of Life</a></h1>
+        <h1><a href={window.location.href} data-testid="header">Game of Life</a></h1>
       </header>
 
       <main className="content">

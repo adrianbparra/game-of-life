@@ -15,11 +15,11 @@ function Buttons() {
         <div className="buttons">
             <p data-testid="generations">Generations: {state.generation}</p>
             <div className="actions-container">
-                <button className="clear" onClick={() =>{clearGrid()}}>Clear</button>
+                <button data-testid="clear" className="clear" onClick={() =>{clearGrid()}}>Clear</button>
 
-                <button className="play" onClick={() => {setPlay()}} >{state.play ? 'Pause': 'Play'}</button>
+                <button data-testid="play" className="play" onClick={() => {setPlay()}} >{state.play ? 'Pause': 'Play'}</button>
                 
-                <button className="next-gen" disabled={state.play} onClick={()=> {nextGeneration()}}>Next Generation</button>
+                <button data-testid="next-gen" className="next-gen" disabled={state.play} onClick={()=> {nextGeneration()}}>Next Generation</button>
 
             </div>
 
@@ -37,7 +37,7 @@ function Buttons() {
                     max="50" 
                     value={gridSize} 
                     className="slider" 
-                    id="gridSize" 
+                    data-testid="gridSize" 
                     onChange={changeGridSize} 
                     onClick={()=> updateSize(gridSize)} 
                     onKeyPress={(e) => { 

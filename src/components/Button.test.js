@@ -1,22 +1,14 @@
 import React from "react";
-import ReactDOM,{ unmountComponentAtNode } from "react-dom";
-import { act, fireEvent } from "@testing-library/react";
+import { act, cleanup, screen, render } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 
 import Buttons from "./Buttons";
 import { GridContext } from "../util/context";
 
 
-let container = null;
-
-beforeEach(()=>{
-    container = document.createElement("div");
-    document.body.appendChild(container);
-})
 
 afterEach(()=>{
-    unmountComponentAtNode(container);
-    container.remove();
-    container = null;
+    cleanup()
 })
 
 var value = {
@@ -37,41 +29,41 @@ var value = {
 
 test("renders with defaul size", ()=>{
     act(()=>{
-        ReactDOM.render(
+        render(
             <GridContext.Provider value={value}>
                 <Buttons/>
             </GridContext.Provider>
-        ,container);
+            );
 
     })
-    expect(container.querySelector("#gridSize").value).toBe("15");
+    expect(screen.getByTestId("gridSize").value).toBe("15");
 
 
 })
 
 test("presses all buttons",  () => {
     act(()=>{
-        ReactDOM.render(
+        render(
             <GridContext.Provider value={value}>
                 <Buttons/>
             </GridContext.Provider>
-        ,container)
+        )
         
     })
 
     act(()=>{
-        fireEvent.click(container.querySelector(".clear"))
-        expect(value.clearGrid).toHaveBeenCalledTimes(1)
+        userEvent.click(screen.getByTestId("clear"))
     })
+    expect(value.clearGrid).toHaveBeenCalledTimes(1)
 
     act(()=>{
-        fireEvent.click(container.querySelector(".play"))
-        expect(value.setPlay).toHaveBeenCalledTimes(1)
+        userEvent.click(screen.getByTestId("play"))
     })
+    expect(value.setPlay).toHaveBeenCalledTimes(1)
 
     act(()=>{
-        fireEvent.click(container.querySelector(".next-gen"))
-        expect(value.nextGeneration).toHaveBeenCalledTimes(1)
+        userEvent.click(screen.getByTestId("next-gen"))
     })
+    expect(value.nextGeneration).toHaveBeenCalledTimes(1)
 
 })
